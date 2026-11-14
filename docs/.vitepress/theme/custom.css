@@ -1,0 +1,981 @@
+/* ==========================================================================
+   MAESTROS PROJECT — Apple Liquid Glass Tactical Design System
+   ========================================================================== */
+
+:root {
+  --vp-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+  --vp-font-family-mono: 'JetBrains Mono', 'SF Mono', ui-monospace, SFMono-Regular, monospace;
+  --lg-font-display: 'Manrope', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+
+  /* Canvas & Glass Surface Palette */
+  --vp-c-bg: #0a0e0b;
+  --vp-c-bg-alt: rgba(18, 24, 20, 0.55);
+  --vp-c-bg-elv: rgba(24, 33, 27, 0.72);
+  --vp-c-bg-soft: rgba(255, 255, 255, 0.045);
+
+  /* Tactical Apple Emerald Accents */
+  --vp-c-brand-1: #6fd18e;
+  --vp-c-brand-2: #559e6d;
+  --vp-c-brand-3: #3e7350;
+  --vp-c-brand-soft: rgba(111, 209, 142, 0.14);
+
+  --vp-c-divider: rgba(255, 255, 255, 0.08);
+  --vp-c-gutter: rgba(255, 255, 255, 0.06);
+
+  /* Custom blocks */
+  --vp-custom-block-info-border: rgba(255, 255, 255, 0.14);
+  --vp-custom-block-info-bg: rgba(255, 255, 255, 0.04);
+  --vp-custom-block-tip-border: rgba(111, 209, 142, 0.34);
+  --vp-custom-block-tip-bg: rgba(45, 89, 59, 0.28);
+  --vp-custom-block-warning-border: rgba(251, 191, 36, 0.34);
+  --vp-custom-block-warning-bg: rgba(120, 82, 16, 0.26);
+  --vp-custom-block-danger-border: rgba(248, 113, 113, 0.36);
+  --vp-custom-block-danger-bg: rgba(127, 29, 29, 0.28);
+
+  /* Liquid Glass Tokens */
+  --lg-radius-xl: 26px;
+  --lg-radius-lg: 22px;
+  --lg-radius-md: 16px;
+  --lg-radius-pill: 9999px;
+  --lg-glass-bg: linear-gradient(155deg, rgba(255, 255, 255, 0.075) 0%, rgba(255, 255, 255, 0.025) 55%, rgba(85, 130, 98, 0.045) 100%);
+  --lg-glass-border: rgba(255, 255, 255, 0.13);
+  --lg-glass-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.20),
+    inset 0 -1px 0 0 rgba(255, 255, 255, 0.04),
+    0 18px 42px -16px rgba(0, 0, 0, 0.62);
+}
+
+html, body {
+  background-color: #090d0a !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* ==========================================================================
+   Ambient Refractable Mesh Light Background
+   ========================================================================== */
+.liquid-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 0%, #101913 0%, #090d0a 72%);
+}
+
+.liquid-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(95px);
+  opacity: 0.52;
+  will-change: transform;
+}
+
+.liquid-orb-1 {
+  width: 680px;
+  height: 520px;
+  top: -160px;
+  left: -120px;
+  background: radial-gradient(circle, rgba(95, 176, 118, 0.34) 0%, rgba(95, 176, 118, 0) 70%);
+  animation: lg-float-1 18s ease-in-out infinite alternate;
+}
+
+.liquid-orb-2 {
+  width: 620px;
+  height: 620px;
+  top: 26%;
+  right: -180px;
+  background: radial-gradient(circle, rgba(61, 128, 92, 0.28) 0%, rgba(61, 128, 92, 0) 70%);
+  animation: lg-float-2 22s ease-in-out infinite alternate;
+}
+
+.liquid-orb-3 {
+  width: 720px;
+  height: 460px;
+  bottom: -180px;
+  left: 28%;
+  background: radial-gradient(circle, rgba(124, 212, 152, 0.16) 0%, rgba(124, 212, 152, 0) 72%);
+  animation: lg-float-3 24s ease-in-out infinite alternate;
+}
+
+@keyframes lg-float-1 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(60px, 40px, 0) scale(1.08); }
+}
+@keyframes lg-float-2 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-50px, -45px, 0) scale(1.06); }
+}
+@keyframes lg-float-3 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(40px, -30px, 0) scale(1.05); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .liquid-orb { animation: none; }
+}
+
+.Layout {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+}
+
+/* ==========================================================================
+   Typography (Apple Display + Cyrillic Optical Legibility)
+   ========================================================================== */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.VPNavBarTitle .title {
+  font-family: var(--lg-font-display);
+  letter-spacing: -0.025em;
+}
+
+.vp-doc h1 {
+  font-weight: 800;
+  font-size: clamp(1.85rem, 2.5vw, 2.35rem);
+  line-height: 1.15;
+  background: linear-gradient(180deg, #ffffff 0%, #c9e6d3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.vp-doc h2 {
+  font-weight: 700;
+  font-size: 1.45rem;
+  border-top: none !important;
+  padding-top: 8px;
+  margin-top: 34px;
+}
+
+.vp-doc h3 {
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.vp-doc p,
+.vp-doc li {
+  line-height: 1.72;
+  color: rgba(240, 245, 242, 0.88);
+}
+
+.vp-doc a {
+  text-decoration: none;
+  transition: color 0.18s ease, opacity 0.18s ease;
+}
+
+/* Inline code as Apple soft capsule pill */
+.vp-doc :not(pre) > code {
+  border-radius: 9999px;
+  padding: 2px 9px;
+  background: rgba(111, 209, 142, 0.12);
+  border: 1px solid rgba(111, 209, 142, 0.22);
+  color: #9be8b4;
+  font-size: 0.85em;
+}
+
+/* ==========================================================================
+   Floating Frosted Liquid Glass Navigation Bar
+   ========================================================================== */
+.VPNavBar {
+  background: rgba(14, 20, 16, 0.58) !important;
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10) !important;
+  box-shadow:
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+    0 12px 32px -12px rgba(0, 0, 0, 0.6);
+}
+
+.VPNavBar.has-sidebar .content-body,
+.VPNavBar .content-body {
+  background: transparent !important;
+}
+
+.VPNavBar .divider {
+  display: none !important;
+}
+
+/* Pill Search Button */
+.DocSearch-Button {
+  border-radius: 9999px !important;
+  background: rgba(255, 255, 255, 0.07) !important;
+  border: 1px solid rgba(255, 255, 255, 0.13) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: blur(16px);
+  padding: 0 14px !important;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.DocSearch-Button:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(111, 209, 142, 0.45) !important;
+}
+
+.DocSearch-Button-Key {
+  border-radius: 7px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+
+/* Nav links as smooth pills */
+.VPNavBarMenuLink {
+  border-radius: 9999px;
+  padding: 6px 14px !important;
+  height: 34px !important;
+  margin: 0 2px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.VPNavBarMenuLink:hover,
+.VPNavBarMenuLink.active {
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+/* Mobile local nav bar */
+.VPLocalNav {
+  background: rgba(14, 20, 16, 0.65) !important;
+  backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09) !important;
+}
+
+/* ==========================================================================
+   Floating Frosted Liquid Glass Sidebar (Desktop) & Smooth Drawer (Mobile)
+   ========================================================================== */
+@media (min-width: 960px) {
+  .VPSidebar {
+    top: calc(var(--vp-nav-height) + 14px) !important;
+    left: 14px !important;
+    bottom: 14px !important;
+    height: auto !important;
+    width: calc(var(--vp-sidebar-width) - 20px) !important;
+    padding: 18px 16px 28px !important;
+    border-radius: var(--lg-radius-xl) !important;
+    background: var(--lg-glass-bg) !important;
+    backdrop-filter: blur(32px) saturate(185%) !important;
+    -webkit-backdrop-filter: blur(32px) saturate(185%) !important;
+    border: 1px solid var(--lg-glass-border) !important;
+    box-shadow: var(--lg-glass-shadow) !important;
+  }
+
+  .VPNavBar.has-sidebar .title {
+    border-bottom: none !important;
+    background: transparent !important;
+  }
+}
+
+@media (max-width: 959px) {
+  .VPSidebar {
+    background: rgba(13, 18, 15, 0.86) !important;
+    backdrop-filter: blur(32px) saturate(185%) !important;
+    -webkit-backdrop-filter: blur(32px) saturate(185%) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.12) !important;
+  }
+}
+
+.VPSidebarItem .link {
+  border-radius: 13px !important;
+  padding: 5px 12px !important;
+  margin: 2px 0;
+  transition: background 0.18s ease, transform 0.18s ease, color 0.18s ease;
+}
+
+.VPSidebarItem .link:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.VPSidebarItem.is-active > .item > .link {
+  background: linear-gradient(135deg, rgba(111, 209, 142, 0.22) 0%, rgba(85, 130, 98, 0.14) 100%) !important;
+  border: 1px solid rgba(111, 209, 142, 0.34);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 6px 18px -6px rgba(72, 160, 102, 0.45);
+  color: #ffffff !important;
+}
+
+.VPSidebarItem.is-active > .item > .link .text {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Right Outline ("На этой странице") Floating Glass Card
+   ========================================================================== */
+.VPDocAsideOutline .content {
+  border-left: none !important;
+  border-radius: var(--lg-radius-lg);
+  padding: 18px 16px !important;
+  background: var(--lg-glass-bg);
+  backdrop-filter: blur(26px) saturate(180%);
+  -webkit-backdrop-filter: blur(26px) saturate(180%);
+  border: 1px solid var(--lg-glass-border);
+  box-shadow: var(--lg-glass-shadow);
+}
+
+.VPDocAsideOutline .outline-marker {
+  left: 6px !important;
+  width: 4px !important;
+  border-radius: 9999px !important;
+  background-color: var(--vp-c-brand-1) !important;
+  box-shadow: 0 0 12px rgba(111, 209, 142, 0.7);
+}
+
+.VPDocAsideOutline .outline-link {
+  padding-left: 10px;
+  border-radius: 10px;
+}
+
+/* ==========================================================================
+   Banners, Custom Blocks, Tables & Blockquotes
+   ========================================================================== */
+.vp-doc img.banner-img {
+  width: 100%;
+  border-radius: var(--lg-radius-lg);
+  margin: 14px 0 22px;
+  display: block;
+  box-shadow:
+    0 20px 44px -16px rgba(0, 0, 0, 0.68),
+    0 0 0 1px rgba(255, 255, 255, 0.14);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+
+.vp-doc img.banner-img:hover {
+  transform: translateY(-2px) scale(1.004);
+  box-shadow:
+    0 24px 52px -14px rgba(0, 0, 0, 0.72),
+    0 0 0 1px rgba(111, 209, 142, 0.28);
+}
+
+/* Apple Glass Custom Blocks (info / tip / warning / danger) */
+.vp-doc .custom-block {
+  border-radius: var(--lg-radius-lg) !important;
+  padding: 18px 22px !important;
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 14px 32px -16px rgba(0, 0, 0, 0.5);
+  margin: 18px 0;
+}
+
+/* Glass Tables */
+.vp-doc table {
+  display: table;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--lg-radius-lg);
+  overflow: hidden;
+  background: var(--lg-glass-bg);
+  backdrop-filter: blur(22px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  box-shadow: var(--lg-glass-shadow);
+  margin: 18px 0;
+}
+
+.vp-doc th {
+  background: rgba(255, 255, 255, 0.06) !important;
+  font-family: var(--lg-font-display);
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+  color: #d6efe0;
+  border: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10) !important;
+  padding: 13px 16px !important;
+}
+
+.vp-doc td {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  padding: 12px 16px !important;
+}
+
+.vp-doc tr:last-child td {
+  border-bottom: none !important;
+}
+
+.vp-doc tr:hover td {
+  background: rgba(255, 255, 255, 0.035) !important;
+}
+
+/* Blockquotes outside custom cards */
+.vp-doc blockquote {
+  border-left: 3px solid var(--vp-c-brand-1);
+  border-radius: 18px;
+  background: var(--lg-glass-bg);
+  backdrop-filter: blur(22px) saturate(175%);
+  border-top: 1px solid rgba(255, 255, 255, 0.11);
+  border-right: 1px solid rgba(255, 255, 255, 0.11);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--lg-glass-shadow);
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+
+/* Footer Prev / Next Apple Glass Cards */
+.VPDocFooter .pager-link {
+  border-radius: var(--lg-radius-lg) !important;
+  background: var(--lg-glass-bg) !important;
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--lg-glass-border) !important;
+  box-shadow: var(--lg-glass-shadow) !important;
+  padding: 14px 18px !important;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.22s ease !important;
+}
+
+.VPDocFooter .pager-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(111, 209, 142, 0.45) !important;
+}
+
+/* ==========================================================================
+   Custom Apple Liquid Glass Bento Cards, Bars, Factions & Team Cards
+   ========================================================================== */
+.lg-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 14px 0 24px;
+}
+
+/* Circular Apple Arrow Button (replaces repetitive text pill buttons) */
+.lg-arrow-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.85);
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), background 0.22s ease, border-color 0.22s ease, color 0.22s ease;
+}
+
+/* Unified Squircle Icon Badge */
+.lg-icon-squircle {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, rgba(111, 209, 142, 0.22) 0%, rgba(255, 255, 255, 0.06) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    0 6px 16px -6px rgba(0, 0, 0, 0.45);
+  color: #e9f9ef;
+  flex-shrink: 0;
+}
+
+.lg-icon-squircle svg {
+  width: 22px;
+  height: 22px;
+}
+
+.lg-icon-squircle.is-discord {
+  background: linear-gradient(160deg, rgba(114, 137, 218, 0.32) 0%, rgba(88, 101, 242, 0.12) 100%);
+  color: #e0e6ff;
+}
+
+.lg-icon-squircle.is-telegram {
+  background: linear-gradient(160deg, rgba(56, 189, 248, 0.30) 0%, rgba(14, 165, 233, 0.12) 100%);
+  color: #dcf3ff;
+}
+
+.lg-icon-squircle.is-amber {
+  background: linear-gradient(160deg, rgba(217, 169, 98, 0.26) 0%, rgba(180, 128, 62, 0.10) 100%);
+  color: #fbe6c2;
+}
+
+/* 1. Horizontal Compact Social / Navigation Bars */
+a.lg-bar-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 22px;
+  background: var(--lg-glass-bg);
+  backdrop-filter: blur(28px) saturate(185%);
+  -webkit-backdrop-filter: blur(28px) saturate(185%);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow: var(--lg-glass-shadow);
+  color: inherit !important;
+  text-decoration: none !important;
+  overflow: hidden;
+  transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.24s ease, box-shadow 0.24s ease;
+}
+
+a.lg-bar-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(111, 209, 142, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 18px 36px -14px rgba(0, 0, 0, 0.7),
+    0 0 24px -8px rgba(111, 209, 142, 0.22);
+}
+
+a.lg-bar-card:hover .lg-arrow-circle,
+a.lg-bento-card:hover .lg-arrow-circle,
+a.lg-faction-card:hover .lg-arrow-circle {
+  background: rgba(111, 209, 142, 0.26);
+  border-color: rgba(111, 209, 142, 0.55);
+  color: #ffffff;
+  transform: translate(1px, -1px) scale(1.06);
+}
+
+.lg-bar-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.lg-bar-title {
+  font-family: var(--lg-font-display);
+  font-weight: 700;
+  font-size: 1.03rem;
+  color: #ffffff;
+  line-height: 1.25;
+}
+
+.lg-bar-sub {
+  font-size: 0.84rem;
+  color: rgba(230, 238, 233, 0.72);
+  line-height: 1.4;
+  margin-top: 3px;
+}
+
+/* 2. Bento Layout (1 Featured Hero Row + 2 Balanced Cards) */
+.lg-bento-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 14px 0 26px;
+}
+
+a.lg-bento-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 20px 22px;
+  border-radius: 24px;
+  background: var(--lg-glass-bg);
+  backdrop-filter: blur(28px) saturate(185%);
+  -webkit-backdrop-filter: blur(28px) saturate(185%);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow: var(--lg-glass-shadow);
+  color: inherit !important;
+  text-decoration: none !important;
+  overflow: hidden;
+  transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.24s ease, box-shadow 0.24s ease;
+}
+
+a.lg-bento-card.is-featured {
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+  background: linear-gradient(135deg, rgba(95, 176, 118, 0.14) 0%, rgba(255, 255, 255, 0.04) 55%, rgba(85, 130, 98, 0.08) 100%);
+  border-color: rgba(111, 209, 142, 0.24);
+}
+
+a.lg-bento-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(111, 209, 142, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 22px 44px -14px rgba(0, 0, 0, 0.72),
+    0 0 28px -8px rgba(111, 209, 142, 0.22);
+}
+
+.lg-bento-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.lg-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9be8b4;
+  margin-bottom: 4px;
+}
+
+.lg-bento-title {
+  font-family: var(--lg-font-display);
+  font-weight: 800;
+  font-size: 1.12rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.lg-bento-desc {
+  font-size: 0.88rem;
+  line-height: 1.52;
+  color: rgba(230, 238, 233, 0.75);
+  margin: 6px 0 0 !important;
+}
+
+.lg-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.lg-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(238, 246, 241, 0.86);
+}
+
+/* Stacked FaceTime-style Team Avatars inside Bento Card */
+.lg-avatar-stack {
+  display: flex;
+  align-items: center;
+}
+
+.lg-avatar-stack img {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  object-fit: cover;
+  border: 2px solid #121814;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+  margin-left: -10px;
+}
+
+.lg-avatar-stack img:first-child {
+  margin-left: 0;
+}
+
+/* 3. Faction Showcase Cards (ВС РФ / ЧРИ) */
+a.lg-faction-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 22px;
+  border-radius: 26px;
+  background: var(--lg-glass-bg);
+  backdrop-filter: blur(30px) saturate(185%);
+  -webkit-backdrop-filter: blur(30px) saturate(185%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: var(--lg-glass-shadow);
+  color: inherit !important;
+  text-decoration: none !important;
+  overflow: hidden;
+  transition: transform 0.26s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.26s ease, box-shadow 0.26s ease;
+}
+
+a.lg-faction-card::after {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 190px;
+  height: 190px;
+  border-radius: 9999px;
+  filter: blur(36px);
+  opacity: 0.45;
+  pointer-events: none;
+  transition: opacity 0.26s ease, transform 0.26s ease;
+}
+
+a.lg-faction-card.is-vsrf::after {
+  background: radial-gradient(circle, rgba(102, 209, 141, 0.48), transparent 70%);
+}
+
+a.lg-faction-card.is-chri::after {
+  background: radial-gradient(circle, rgba(217, 169, 98, 0.44), transparent 70%);
+}
+
+a.lg-faction-card:hover {
+  transform: translateY(-4px);
+}
+
+a.lg-faction-card.is-vsrf:hover {
+  border-color: rgba(111, 209, 142, 0.48);
+}
+
+a.lg-faction-card.is-chri:hover {
+  border-color: rgba(217, 169, 98, 0.48);
+}
+
+a.lg-faction-card:hover::after {
+  opacity: 0.78;
+  transform: scale(1.1);
+}
+
+.lg-faction-title {
+  font-family: var(--lg-font-display);
+  font-weight: 800;
+  font-size: 1.32rem;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin-top: 2px;
+}
+
+.lg-eyebrow.is-amber {
+  color: #f3ce92;
+}
+
+/* Responsive grids for mobile */
+@media (max-width: 680px) {
+  .lg-grid {
+    grid-template-columns: 1fr;
+  }
+  a.lg-bento-card.is-featured {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  a.lg-bento-card.is-featured .lg-arrow-circle {
+    align-self: flex-end;
+  }
+}
+
+/* Team Profile Cards */
+.lg-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin: 18px 0 32px;
+}
+
+.lg-team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 20px 22px;
+  border-radius: var(--lg-radius-xl);
+  background: var(--lg-glass-bg);
+  backdrop-filter: blur(28px) saturate(185%);
+  border: 1px solid var(--lg-glass-border);
+  box-shadow: var(--lg-glass-shadow);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease;
+}
+
+.lg-team-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(111, 209, 142, 0.42);
+}
+
+.lg-team-card img {
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
+  border-radius: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.5);
+  margin-bottom: 14px;
+}
+
+.lg-team-name {
+  font-family: var(--lg-font-display);
+  font-weight: 800;
+  font-size: 1.18rem;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.lg-team-role {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(111, 209, 142, 0.14);
+  border: 1px solid rgba(111, 209, 142, 0.28);
+  color: #a4ebc0;
+}
+
+/* Search Modal Liquid Glass */
+.VPLocalSearchBox .shell {
+  border-radius: 26px !important;
+  background: rgba(18, 25, 20, 0.78) !important;
+  backdrop-filter: blur(36px) saturate(190%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.75) !important;
+}
+
+.VPLocalSearchBox .search-input {
+  border-radius: 14px !important;
+}
+
+.VPLocalSearchBox .result {
+  border-radius: 14px !important;
+}
+
+/* Clean HRs */
+.vp-doc hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 28px 0;
+}
+
+/* Responsive tweaks for mobile */
+@media (max-width: 640px) {
+  .vp-doc img.banner-img {
+    border-radius: 16px;
+  }
+  a.lg-bar-card,
+  a.lg-bento-card,
+  a.lg-faction-card {
+    border-radius: 20px;
+    padding: 16px 18px;
+  }
+  .vp-doc table {
+    display: block;
+    overflow-x: auto;
+    border-radius: 16px;
+  }
+}
+
+/* ==========================================================================
+   Rules Page — Liquid Glass Section Hierarchy & Quick Jump Navigation
+   ========================================================================== */
+.rules-jump-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  margin: 18px 0 28px;
+}
+
+a.rules-jump-pill {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 14px;
+  border-radius: 16px;
+  background: var(--lg-glass-bg);
+  backdrop-filter: blur(22px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 6px 18px rgba(0, 0, 0, 0.24);
+  text-decoration: none !important;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.2s ease, background 0.2s ease;
+}
+
+a.rules-jump-pill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(111, 209, 142, 0.42);
+  background: linear-gradient(145deg, rgba(111, 209, 142, 0.14) 0%, rgba(255, 255, 255, 0.04) 100%);
+}
+
+.rules-jump-num {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 30px;
+  padding: 0 8px;
+  border-radius: 10px;
+  font-family: var(--lg-font-display);
+  font-weight: 800;
+  font-size: 0.84rem;
+  color: #a9f0c3;
+  background: rgba(111, 209, 142, 0.16);
+  border: 1px solid rgba(111, 209, 142, 0.3);
+}
+
+.rules-jump-label {
+  font-family: var(--lg-font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.28;
+  color: #edf7f0;
+}
+
+.rules-page .vp-doc h2 {
+  position: relative;
+  margin: 46px 0 18px;
+  padding: 13px 20px 13px 26px;
+  font-size: clamp(1.36rem, 2vw, 1.62rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #f3faf5;
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(111, 209, 142, 0.14) 0%,
+    rgba(255, 255, 255, 0.05) 48%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  border: 1px solid rgba(130, 224, 162, 0.24);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 10px 26px rgba(0, 0, 0, 0.26);
+  backdrop-filter: blur(20px) saturate(165%);
+  scroll-margin-top: 88px;
+}
+
+.rules-page .vp-doc h2::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 54%;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #8ee5ad 0%, #48b873 100%);
+  box-shadow: 0 0 12px rgba(111, 209, 142, 0.45);
+}
+
+.rules-page .vp-doc h2 .header-anchor {
+  top: 13px;
+  margin-left: -1.15em;
+}
+
+.rules-page .vp-doc h3 {
+  margin: 24px 0 8px;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #e6f5eb;
+  scroll-margin-top: 88px;
+}
+
+.rules-page .vp-doc h3 code {
+  font-size: 0.78rem;
+  padding: 2px 9px;
+  vertical-align: middle;
+  margin: 0 1px;
+  letter-spacing: 0.04em;
+  background: rgba(111, 209, 142, 0.11);
+  border-color: rgba(111, 209, 142, 0.22);
+  color: #a7ebc0;
+}
+
+@media (max-width: 640px) {
+  .rules-jump-grid {
+    grid-template-columns: 1fr;
+  }
+  .rules-page .vp-doc h2 {
+    margin: 34px 0 14px;
+    padding: 12px 16px 12px 22px;
+    border-radius: 15px;
+    font-size: 1.24rem;
+  }
+}
