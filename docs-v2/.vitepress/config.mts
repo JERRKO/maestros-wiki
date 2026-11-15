@@ -64,14 +64,6 @@ function buildSidebar(mode: 'default' | 'vs-rf' | 'chri'): DefaultTheme.SidebarI
           ]
         }
       ]
-    },
-    {
-      text: 'БЫСТРЫЙ ДОСТУП',
-      items: [
-        { text: 'Степени наказания', link: '/chechnya-rp/rules#степени-наказания' },
-        { text: 'Базовые RP-термины', link: '/chechnya-rp/rules#ii-rp-правила-и-базовые-термины' },
-        { text: 'Плен и RPK', link: '/chechnya-rp/rules#vi-правила-плена-допросов-и-rpk' }
-      ]
     }
   ]
 }
