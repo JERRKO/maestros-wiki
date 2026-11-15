@@ -5,24 +5,11 @@ pageClass: rules-page
 # ПРАВИЛА ЧЕЧНЯ РП
 
 <div class="mn-banner">
-<div class="mn-banner-art" aria-hidden="true">
-<svg viewBox="0 0 900 150" fill="none" preserveAspectRatio="xMidYMid slice">
-  <defs>
-    <pattern id="mn-grid-rules" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M 32 0 L 0 0 0 32" stroke="rgba(99,201,132,0.14)" stroke-width="0.8"/>
-    </pattern>
-  </defs>
-  <rect width="900" height="150" fill="url(#mn-grid-rules)"/>
-  <path d="M 80 120 L 210 38 L 360 112 L 540 34 L 720 116 L 830 42" stroke="rgba(99,201,132,0.22)" stroke-width="1"/>
-</svg>
-</div>
 <span class="mn-banner-icon" aria-hidden="true">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="3"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h4"/></svg>
 </span>
 <div class="mn-banner-center">
-  <span class="mn-banner-kicker">РЕГЛАМЕНТ СЕРВЕРА // 6 РАЗДЕЛОВ</span>
   <div class="mn-banner-title">Правила Чечни MST</div>
-  <div class="mn-banner-sub">Общие положения, бой, связь, командование и плен</div>
 </div>
 <span class="mn-banner-icon" aria-hidden="true">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 19 5.5v6c0 4.8-3 8.2-7 10-4-1.8-7-5.2-7-10v-6l7-3z"/><path d="m9 12.2 2.1 2.1 4.2-4.3"/></svg>

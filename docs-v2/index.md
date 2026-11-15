@@ -5,26 +5,11 @@ title: Главная страница
 # Главная страница
 
 <div class="mn-banner is-hero">
-<div class="mn-banner-art" aria-hidden="true">
-<svg viewBox="0 0 900 180" fill="none" preserveAspectRatio="xMidYMid slice">
-  <defs>
-    <pattern id="mn-grid-hero" width="36" height="36" patternUnits="userSpaceOnUse">
-      <path d="M 36 0 L 0 0 0 36" stroke="rgba(99,201,132,0.16)" stroke-width="0.8"/>
-    </pattern>
-  </defs>
-  <rect width="900" height="180" fill="url(#mn-grid-hero)"/>
-  <path d="M-20 132 C 160 88, 280 158, 450 96 C 620 34, 740 124, 920 68" stroke="rgba(99,201,132,0.34)" stroke-width="1.2"/>
-  <path d="M-20 154 C 190 112, 310 172, 490 116 C 660 62, 770 140, 920 92" stroke="rgba(99,201,132,0.18)" stroke-width="1"/>
-  <circle cx="450" cy="90" r="68" stroke="rgba(99,201,132,0.15)" stroke-width="1" stroke-dasharray="4 6"/>
-</svg>
-</div>
 <span class="mn-banner-icon" aria-hidden="true">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 19 5.5v6c0 4.8-3 8.2-7 10-4-1.8-7-5.2-7-10v-6l7-3z"/><path d="m9 12.2 2.1 2.1 4.2-4.3"/></svg>
 </span>
 <div class="mn-banner-center">
-  <span class="mn-banner-kicker">MAESTROS PROJECT // MILSIM WIKI</span>
   <div class="mn-banner-title">Добро пожаловать</div>
-  <div class="mn-banner-sub">Тактический порядок, уставы и база знаний сервера</div>
 </div>
 <span class="mn-banner-icon" aria-hidden="true">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m7 17 5-5 5 5"/><path d="m7 11 5-5 5 5"/></svg>
@@ -40,21 +25,11 @@ title: Главная страница
 :::
 
 <div class="mn-banner">
-<div class="mn-banner-art" aria-hidden="true">
-<svg viewBox="0 0 900 150" fill="none" preserveAspectRatio="xMidYMid slice">
-  <path d="M 110 75 Q 250 18 450 75 T 790 75" stroke="rgba(99,201,132,0.24)" stroke-width="1.1"/>
-  <path d="M 110 75 Q 250 132 450 75 T 790 75" stroke="rgba(99,201,132,0.16)" stroke-width="1" stroke-dasharray="3 5"/>
-  <circle cx="130" cy="75" r="54" stroke="rgba(114,137,218,0.18)" stroke-width="1"/>
-  <circle cx="770" cy="75" r="54" stroke="rgba(56,168,224,0.18)" stroke-width="1"/>
-</svg>
-</div>
 <span class="mn-banner-icon is-discord" aria-hidden="true">
   <svg viewBox="0 0 127.14 96.36" fill="currentColor"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg>
 </span>
 <div class="mn-banner-center">
-  <span class="mn-banner-kicker">01 // СВЯЗЬ И НАБОРЫ</span>
   <div class="mn-banner-title">Наши соцсети</div>
-  <div class="mn-banner-sub">Официальные каналы проекта и подача рапортов</div>
 </div>
 <span class="mn-banner-icon is-telegram" aria-hidden="true">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.93 3.29a1.5 1.5 0 0 0-1.56-.21L2.94 10.1a1.45 1.45 0 0 0 .08 2.71l4.41 1.44 1.72 5.36a1.1 1.1 0 0 0 1.85.44l2.49-2.41 4.38 3.24a1.5 1.5 0 0 0 2.36-.88l2.7-15.2a1.5 1.5 0 0 0-1-1.51Zm-4.18 4.44-7.9 7.12-.31 3.28-1.26-3.93 9.47-6.47Z"/></svg>
@@ -89,21 +64,11 @@ title: Главная страница
 </div>
 
 <div class="mn-banner">
-<div class="mn-banner-art" aria-hidden="true">
-<svg viewBox="0 0 900 150" fill="none" preserveAspectRatio="xMidYMid slice">
-  <line x1="160" y1="0" x2="160" y2="150" stroke="rgba(99,201,132,0.12)" stroke-width="1"/>
-  <line x1="740" y1="0" x2="740" y2="150" stroke="rgba(99,201,132,0.12)" stroke-width="1"/>
-  <line x1="0" y1="75" x2="900" y2="75" stroke="rgba(99,201,132,0.10)" stroke-width="1" stroke-dasharray="4 8"/>
-  <circle cx="450" cy="75" r="95" stroke="rgba(99,201,132,0.14)" stroke-width="1"/>
-</svg>
-</div>
 <span class="mn-banner-icon" aria-hidden="true">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="16.2 7.8 14 14 7.8 16.2 10 10 16.2 7.8"/></svg>
 </span>
 <div class="mn-banner-center">
-  <span class="mn-banner-kicker">02 // РАЗДЕЛЫ</span>
   <div class="mn-banner-title">Быстрая навигация</div>
-  <div class="mn-banner-sub">Правила сервера, карьера и руководящий состав</div>
 </div>
 <span class="mn-banner-icon" aria-hidden="true">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
