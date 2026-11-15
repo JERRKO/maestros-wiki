@@ -1,4 +1,80 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig, type DefaultTheme } from 'vitepress'
+
+function buildSidebar(mode: 'default' | 'vs-rf' | 'chri'): DefaultTheme.SidebarItem[] {
+  const expandVsRf = mode === 'vs-rf'
+  const expandChri = mode === 'chri'
+
+  return [
+    {
+      items: [
+        { text: 'Главная страница', link: '/' },
+        { text: 'Команда проекта', link: '/team' }
+      ]
+    },
+    {
+      text: 'ЧЕЧНЯ РП',
+      items: [
+        { text: 'ПРАВИЛА ЧЕЧНЯ РП', link: '/chechnya-rp/rules' },
+        { text: 'Система званий и заслуг', link: '/chechnya-rp/ranks' }
+      ]
+    },
+    {
+      text: 'ФРАКЦИИ И ПОДРАЗДЕЛЕНИЯ',
+      items: [
+        {
+          text: 'ВС РФ',
+          link: '/factions/vs-rf',
+          collapsed: expandChri,
+          items: [
+            {
+              text: 'Архитектура ВС РФ',
+              link: '/factions/vs-rf-architecture',
+              collapsed: !expandVsRf,
+              items: [
+                { text: 'Штаб (Командование)', link: '/factions/vs-rf-guides/shtab' },
+                { text: 'МСВ (Мотострелки)', link: '/factions/vs-rf-guides/msv' },
+                { text: 'Бронегруппа / РМО', link: '/factions/vs-rf-guides/rmo' },
+                { text: 'Комендатура', link: '/factions/vs-rf-guides/komendatura' },
+                { text: 'Особый отдел (ФСБ)', link: '/factions/vs-rf-guides/fsb' },
+                { text: 'Спецназ ГРУ', link: '/factions/vs-rf-guides/gru' }
+              ]
+            },
+            { text: 'Устав ВС РФ', link: '/factions/vs-rf-ustav' }
+          ]
+        },
+        {
+          text: 'ЧРИ',
+          link: '/factions/chri',
+          collapsed: expandVsRf,
+          items: [
+            {
+              text: 'Архитектура ЧРИ',
+              link: '/factions/chri-architecture',
+              collapsed: !expandChri,
+              items: [
+                { text: 'Штаб (Совет командиров)', link: '/factions/chri-guides/shtab' },
+                { text: 'Гвардия', link: '/factions/chri-guides/gvardiya' },
+                { text: 'Отряды полевых командиров', link: '/factions/chri-guides/otryady' },
+                { text: 'Ополчение', link: '/factions/chri-guides/opolchenie' },
+                { text: 'ДГБ и Шариатская гвардия', link: '/factions/chri-guides/dgb' },
+                { text: 'Диверсионные группы и тыл', link: '/factions/chri-guides/diversionnye' }
+              ]
+            },
+            { text: 'Устав ЧРИ', link: '/factions/chri-ustav' }
+          ]
+        }
+      ]
+    },
+    {
+      text: 'БЫСТРЫЙ ДОСТУП',
+      items: [
+        { text: 'Степени наказания', link: '/chechnya-rp/rules#степени-наказания' },
+        { text: 'Базовые RP-термины', link: '/chechnya-rp/rules#ii-rp-правила-и-базовые-термины' },
+        { text: 'Плен и RPK', link: '/chechnya-rp/rules#vi-правила-плена-допросов-и-rpk' }
+      ]
+    }
+  ]
+}
 
 export default defineConfig({
   base: '/maestros-wiki/v2/',
@@ -56,68 +132,11 @@ export default defineConfig({
       { text: 'Discord', link: 'https://discord.gg/jDbRN3Kgg' },
       { text: 'Telegram', link: 'https://t.me/GoreBoxMST' }
     ],
-    sidebar: [
-      {
-        items: [
-          { text: 'Главная страница', link: '/' },
-          { text: 'Команда проекта', link: '/team' }
-        ]
-      },
-      {
-        text: 'ЧЕЧНЯ РП',
-        items: [
-          { text: 'ПРАВИЛА ЧЕЧНЯ РП', link: '/chechnya-rp/rules' },
-          { text: 'Система званий и заслуг', link: '/chechnya-rp/ranks' }
-        ]
-      },
-      {
-        text: 'ФРАКЦИИ И ПОДРАЗДЕЛЕНИЯ',
-        items: [
-          {
-            text: 'ВС РФ',
-            link: '/factions/vs-rf',
-            collapsed: false,
-            items: [
-              {
-                text: 'Архитектура ВС РФ',
-                link: '/factions/vs-rf-architecture',
-                collapsed: true,
-                items: [
-                  { text: 'Штаб (Командование)', link: '/factions/vs-rf-guides/shtab' },
-                  { text: 'МСВ (Мотострелки)', link: '/factions/vs-rf-guides/msv' },
-                  { text: 'Бронегруппа / РМО', link: '/factions/vs-rf-guides/rmo' },
-                  { text: 'Комендатура', link: '/factions/vs-rf-guides/komendatura' },
-                  { text: 'Особый отдел (ФСБ)', link: '/factions/vs-rf-guides/fsb' },
-                  { text: 'Спецназ ГРУ', link: '/factions/vs-rf-guides/gru' }
-                ]
-              },
-              { text: 'Устав ВС РФ', link: '/factions/vs-rf-ustav' }
-            ]
-          },
-          {
-            text: 'ЧРИ',
-            link: '/factions/chri',
-            collapsed: false,
-            items: [
-              {
-                text: 'Архитектура ЧРИ',
-                link: '/factions/chri-architecture',
-                collapsed: true,
-                items: [
-                  { text: 'Штаб (Совет командиров)', link: '/factions/chri-guides/shtab' },
-                  { text: 'Гвардия', link: '/factions/chri-guides/gvardiya' },
-                  { text: 'Отряды полевых командиров', link: '/factions/chri-guides/otryady' },
-                  { text: 'Ополчение', link: '/factions/chri-guides/opolchenie' },
-                  { text: 'ДГБ и Шариатская гвардия', link: '/factions/chri-guides/dgb' },
-                  { text: 'Диверсионные группы и тыл', link: '/factions/chri-guides/diversionnye' }
-                ]
-              },
-              { text: 'Устав ЧРИ', link: '/factions/chri-ustav' }
-            ]
-          }
-        ]
-      }
-    ],
+    sidebar: {
+      '/factions/vs-rf': buildSidebar('vs-rf'),
+      '/factions/chri': buildSidebar('chri'),
+      '/': buildSidebar('default')
+    },
     footer: {
       message: 'Официальная документация MAESTROS PROJECT',
       copyright: 'MAESTROS PROJECT © 2026'

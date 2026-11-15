@@ -132,6 +132,7 @@ body {
 .mn-faction,
 .mn-team-card,
 .rules-jump-pill,
+.mn-sidebar-social,
 .VPDocFooter .pager-link {
   position: relative;
   overflow: hidden;
@@ -143,6 +144,7 @@ body {
 .mn-faction::before,
 .mn-team-card::before,
 .rules-jump-pill::before,
+.mn-sidebar-social::before,
 .VPDocFooter .pager-link::before {
   content: '';
   position: absolute;
@@ -164,6 +166,7 @@ body {
 .mn-faction::after,
 .mn-team-card::after,
 .rules-jump-pill::after,
+.mn-sidebar-social::after,
 .VPDocFooter .pager-link::after {
   content: '';
   position: absolute;
@@ -190,6 +193,7 @@ body {
 .mn-faction > *,
 .mn-team-card > *,
 .rules-jump-pill > *,
+.mn-sidebar-social > *,
 .VPDocFooter .pager-link > * {
   position: relative;
   z-index: 1;
@@ -316,7 +320,18 @@ body {
   .VPSidebar {
     background: #080c0a !important;
     border-right: 1px solid rgba(255, 255, 255, 0.07) !important;
-    padding-top: calc(var(--vp-nav-height) + 14px) !important;
+    padding-top: calc(var(--vp-nav-height) + 12px) !important;
+    padding-bottom: 16px !important;
+  }
+
+  .VPSidebar .nav {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .VPSidebar .group + .group {
+    padding-top: 10px !important;
   }
 }
 
@@ -330,8 +345,8 @@ body {
 .VPSidebarItem .link {
   position: relative;
   border-radius: 10px !important;
-  padding: 5px 12px !important;
-  margin: 2px 0;
+  padding: 4px 10px !important;
+  margin: 1px 0;
   transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
 }
 
@@ -358,6 +373,250 @@ body {
 .VPSidebarItem.is-active > .item > .link .text {
   color: #e9f6ee !important;
   font-weight: 600;
+}
+
+/* Monochrome SVG icons for sidebar navigation items */
+.VPSidebarItem a.link .text {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.VPSidebarItem a.link .text::before {
+  flex-shrink: 0;
+  margin-top: 4px;
+  opacity: 0.62;
+  transition: opacity 0.18s ease, transform 0.18s ease, background-color 0.18s ease;
+}
+
+.VPSidebarItem.level-3 > .item > a.link .text::before {
+  margin-top: 9px;
+}
+
+.VPSidebarItem a.link:hover .text::before,
+.VPSidebarItem.is-active > .item > a.link .text::before {
+  opacity: 1;
+}
+
+.VPSidebarItem a.link[href$="/v2/"] .text::before,
+.VPSidebarItem a.link[href="/"] .text::before,
+.VPSidebarItem a.link[href$="/team"] .text::before,
+.VPSidebarItem a.link[href$="/chechnya-rp/rules"] .text::before,
+.VPSidebarItem a.link[href$="/chechnya-rp/ranks"] .text::before,
+.VPSidebarItem a.link[href$="/factions/vs-rf"] .text::before,
+.VPSidebarItem a.link[href$="/factions/chri"] .text::before,
+.VPSidebarItem a.link[href$="-architecture"] .text::before,
+.VPSidebarItem a.link[href$="-ustav"] .text::before,
+.VPSidebarItem a.link[href*="#"] .text::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  background-color: currentColor;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+/* Home */
+.VPSidebarItem a.link[href$="/v2/"] .text::before,
+.VPSidebarItem a.link[href="/"] .text::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z'/%3E%3C/svg%3E");
+}
+
+/* Team */
+.VPSidebarItem a.link[href$="/team"] .text::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M22 21v-2a4 4 0 0 0-3-3.87'/%3E%3Cpath d='M16 3.13a4 4 0 0 1 0 7.75'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M22 21v-2a4 4 0 0 0-3-3.87'/%3E%3Cpath d='M16 3.13a4 4 0 0 1 0 7.75'/%3E%3C/svg%3E");
+}
+
+/* Rules */
+.VPSidebarItem a.link[href$="/chechnya-rp/rules"] .text::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2.5 19 5.5v6c0 4.8-3 8.2-7 10-4-1.8-7-5.2-7-10v-6l7-3z'/%3E%3Cpath d='m9 12.2 2.1 2.1 4.2-4.3'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2.5 19 5.5v6c0 4.8-3 8.2-7 10-4-1.8-7-5.2-7-10v-6l7-3z'/%3E%3Cpath d='m9 12.2 2.1 2.1 4.2-4.3'/%3E%3C/svg%3E");
+}
+
+/* Ranks */
+.VPSidebarItem a.link[href$="/chechnya-rp/ranks"] .text::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 11 5-5 5 5'/%3E%3Cpath d='m7 17 5-5 5 5'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 11 5-5 5 5'/%3E%3Cpath d='m7 17 5-5 5 5'/%3E%3C/svg%3E");
+}
+
+/* VS RF */
+.VPSidebarItem a.link[href$="/factions/vs-rf"] .text::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 3 14.8 8.7 21 9.6 16.5 14 17.6 20.2 12 17.2 6.4 20.2 7.5 14 3 9.6 9.2 8.7 12 3'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 3 14.8 8.7 21 9.6 16.5 14 17.6 20.2 12 17.2 6.4 20.2 7.5 14 3 9.6 9.2 8.7 12 3'/%3E%3C/svg%3E");
+}
+
+/* CHRI */
+.VPSidebarItem a.link[href$="/factions/chri"] .text::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpolygon points='16.2 7.8 14 14 7.8 16.2 10 10 16.2 7.8'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpolygon points='16.2 7.8 14 14 7.8 16.2 10 10 16.2 7.8'/%3E%3C/svg%3E");
+}
+
+/* Architecture */
+.VPSidebarItem a.link[href$="-architecture"] .text::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 3 21 7.5 12 12 3 7.5 12 3'/%3E%3Cpolyline points='3 12 12 16.5 21 12'/%3E%3Cpolyline points='3 16.5 12 21 21 16.5'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 3 21 7.5 12 12 3 7.5 12 3'/%3E%3Cpolyline points='3 12 12 16.5 21 12'/%3E%3Cpolyline points='3 16.5 12 21 21 16.5'/%3E%3C/svg%3E");
+}
+
+/* Ustav */
+.VPSidebarItem a.link[href$="-ustav"] .text::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='3' width='14' height='18' rx='2.5'/%3E%3Cpath d='M9 8h6'/%3E%3Cpath d='M9 12h6'/%3E%3Cpath d='M9 16h4'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='3' width='14' height='18' rx='2.5'/%3E%3Cpath d='M9 8h6'/%3E%3Cpath d='M9 12h6'/%3E%3Cpath d='M9 16h4'/%3E%3C/svg%3E");
+}
+
+/* Quick Access: Punishments */
+.VPSidebarItem a.link[href*="#%D1%81%D1%82%D0%B5%D0%BF%D0%B5%D0%BD%D0%B8"] .text::before,
+.VPSidebarItem a.link[href*="степени-наказания"] .text::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z'/%3E%3Cline x1='12' y1='9' x2='12' y2='13'/%3E%3Cline x1='12' y1='17' x2='12.01' y2='17'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z'/%3E%3Cline x1='12' y1='9' x2='12' y2='13'/%3E%3Cline x1='12' y1='17' x2='12.01' y2='17'/%3E%3C/svg%3E");
+}
+
+/* Quick Access: RP Terms */
+.VPSidebarItem a.link[href*="#ii-rp-"] .text::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z'/%3E%3C/svg%3E");
+}
+
+/* Quick Access: Captivity & RPK */
+.VPSidebarItem a.link[href*="#vi-"] .text::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cline x1='12' y1='3' x2='12' y2='6'/%3E%3Cline x1='12' y1='18' x2='12' y2='21'/%3E%3Cline x1='3' y1='12' x2='6' y2='12'/%3E%3Cline x1='18' y1='12' x2='21' y2='12'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cline x1='12' y1='3' x2='12' y2='6'/%3E%3Cline x1='12' y1='18' x2='12' y2='21'/%3E%3Cline x1='3' y1='12' x2='6' y2='12'/%3E%3Cline x1='18' y1='12' x2='21' y2='12'/%3E%3C/svg%3E");
+}
+
+/* Subtle tactical dot for level-3 unit sub-guides */
+.VPSidebarItem.level-3 > .item > a.link .text::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  background-color: currentColor;
+  opacity: 0.36;
+}
+
+.VPSidebarItem.level-3.is-active > .item > a.link .text::before {
+  background-color: #63c984;
+  opacity: 1;
+}
+
+/* Bottom Community Dock (#sidebar-nav-after) */
+.mn-sidebar-footer {
+  margin-top: auto;
+  padding: 12px 0 2px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mn-sidebar-footer-label {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(230, 239, 233, 0.45);
+  padding: 0 4px 1px;
+}
+
+a.mn-sidebar-social {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 10px;
+  border-radius: 12px;
+  background: var(--mn-surface);
+  border: 1px solid var(--mn-border);
+  text-decoration: none !important;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), background 0.2s ease, border-color 0.2s ease;
+}
+
+a.mn-sidebar-social.is-discord {
+  --mn-spot-rgb: 114, 137, 218;
+}
+
+a.mn-sidebar-social.is-telegram {
+  --mn-spot-rgb: 56, 168, 224;
+}
+
+a.mn-sidebar-social:hover {
+  transform: translateY(-1px);
+  background: var(--mn-surface-elevated);
+  border-color: rgba(99, 201, 132, 0.3);
+}
+
+a.mn-sidebar-social.is-discord:hover {
+  border-color: rgba(114, 137, 218, 0.4);
+}
+
+a.mn-sidebar-social.is-telegram:hover {
+  border-color: rgba(56, 168, 224, 0.4);
+}
+
+.mn-sidebar-social-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #111914;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mn-sidebar-social-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.mn-sidebar-social-icon.is-discord {
+  color: #9ba5ff;
+  border-color: rgba(114, 137, 218, 0.28);
+}
+
+.mn-sidebar-social-icon.is-telegram {
+  color: #6bc4f0;
+  border-color: rgba(56, 168, 224, 0.28);
+}
+
+.mn-sidebar-social-meta {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.mn-sidebar-social-title {
+  font-family: var(--mn-font-display);
+  font-weight: 700;
+  font-size: 0.86rem;
+  line-height: 1.2;
+  color: #eff6f1;
+}
+
+.mn-sidebar-social-sub {
+  font-size: 0.72rem;
+  line-height: 1.25;
+  color: rgba(226, 239, 231, 0.56);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mn-sidebar-social-arrow {
+  font-size: 0.78rem;
+  color: rgba(226, 239, 231, 0.45);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+a.mn-sidebar-social:hover .mn-sidebar-social-arrow {
+  transform: translate(1px, -1px);
+  color: #c8f3d7;
 }
 
 .VPDocAsideOutline .content {

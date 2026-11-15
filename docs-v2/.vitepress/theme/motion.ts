@@ -1,5 +1,5 @@
 const SPOTLIGHT_SELECTOR =
-  '.mn-banner, .mn-bar, .mn-card, .mn-faction, .mn-team-card, .rules-jump-pill, .VPDocFooter .pager-link'
+  '.mn-banner, .mn-bar, .mn-card, .mn-faction, .mn-team-card, .rules-jump-pill, .mn-sidebar-social, .VPDocFooter .pager-link'
 
 const REVEAL_SELECTOR =
   '.vp-doc h2, .vp-doc .custom-block, .vp-doc table, .mn-banner, .mn-grid, .mn-stack, .rules-jump-grid, .mn-team-grid, .VPDocFooter .pager-link'
