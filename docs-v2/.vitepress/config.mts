@@ -87,6 +87,7 @@ export default defineConfig({
     ]
   ],
   themeConfig: {
+    logo: { src: '/images/mst_logo.jpg', alt: 'MST' },
     search: {
       provider: 'local',
       options: {
@@ -116,11 +117,6 @@ export default defineConfig({
       next: 'Далее'
     },
     nav: [
-      { text: 'Главная', link: '/' },
-      { text: 'Правила', link: '/chechnya-rp/rules' },
-      { text: 'Звания', link: '/chechnya-rp/ranks' },
-      { text: 'ВС РФ', link: '/factions/vs-rf' },
-      { text: 'ЧРИ', link: '/factions/chri' },
       { text: 'Discord', link: 'https://discord.gg/jDbRN3Kgg' },
       { text: 'Telegram', link: 'https://t.me/GoreBoxMST' }
     ],

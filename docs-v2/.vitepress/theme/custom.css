@@ -274,6 +274,12 @@ body {
   display: none !important;
 }
 
+.VPNavBarTitle .logo {
+  height: 26px !important;
+  width: auto !important;
+  mix-blend-mode: screen;
+}
+
 .DocSearch-Button {
   border-radius: 9999px !important;
   background: #0d130f !important;
@@ -282,9 +288,22 @@ body {
   transition: border-color 0.2s ease, background 0.2s ease !important;
 }
 
+@media (min-width: 768px) {
+  .DocSearch-Button {
+    min-width: 240px;
+    justify-content: space-between !important;
+  }
+}
+
 .DocSearch-Button:hover {
   background: #111914 !important;
   border-color: rgba(99, 201, 132, 0.42) !important;
+}
+
+.DocSearch-Button-Keys {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 4px;
 }
 
 .DocSearch-Button-Key {
