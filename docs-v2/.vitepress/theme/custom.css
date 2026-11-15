@@ -285,31 +285,47 @@ body {
   background: #0d130f !important;
   border: 1px solid rgba(255, 255, 255, 0.09) !important;
   padding: 0 14px !important;
-  transition: border-color 0.2s ease, background 0.2s ease !important;
+  transition: border-color 0.22s ease, background 0.22s ease, transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease !important;
+}
+
+@media (max-width: 767px) {
+  .DocSearch-Button {
+    width: 38px !important;
+    height: 38px !important;
+    padding: 0 !important;
+    justify-content: center !important;
+  }
 }
 
 @media (min-width: 768px) {
   .DocSearch-Button {
     min-width: 240px;
-    justify-content: space-between !important;
+    justify-content: flex-start !important;
   }
 }
 
 .DocSearch-Button:hover {
   background: #111914 !important;
-  border-color: rgba(99, 201, 132, 0.42) !important;
+  border-color: rgba(99, 201, 132, 0.45) !important;
+  box-shadow: 0 0 0 3px rgba(99, 201, 132, 0.08);
 }
 
-.DocSearch-Button-Keys {
-  display: inline-flex !important;
-  align-items: center;
-  gap: 4px;
+.DocSearch-Button:active {
+  transform: scale(0.97);
 }
 
+.DocSearch-Button .DocSearch-Search-Icon {
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s ease;
+}
+
+.DocSearch-Button:hover .DocSearch-Search-Icon {
+  transform: scale(1.08);
+  color: #8ee5ab;
+}
+
+.DocSearch-Button-Keys,
 .DocSearch-Button-Key {
-  border-radius: 7px !important;
-  background: rgba(255, 255, 255, 0.05) !important;
-  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  display: none !important;
 }
 
 .VPNavBarMenuLink {
@@ -1236,17 +1252,63 @@ a.rules-jump-pill:hover {
   color: #9ae8b3;
 }
 
-/* Search Modal Minimal Dark */
+/* Search Modal Minimal Dark + Backdrop & Pop-in Animations */
+@keyframes mnSearchBackdropIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mnSearchShellIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.975);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.VPLocalSearchBox .backdrop {
+  background: rgba(4, 7, 5, 0.72) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: mnSearchBackdropIn 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 .VPLocalSearchBox .shell {
   border-radius: 22px !important;
   background: #0c120e !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid rgba(99, 201, 132, 0.18) !important;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.04) !important;
+  animation: mnSearchShellIn 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.VPLocalSearchBox .search-bar {
+  border-radius: 14px !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  background: #090e0b !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.VPLocalSearchBox .search-bar:focus-within {
+  border-color: rgba(99, 201, 132, 0.45) !important;
+  box-shadow: 0 0 0 3px rgba(99, 201, 132, 0.10);
 }
 
 .VPLocalSearchBox .search-input,
 .VPLocalSearchBox .result {
   border-radius: 12px !important;
+  transition: background-color 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+}
+
+.VPLocalSearchBox .result.selected {
+  border-color: rgba(99, 201, 132, 0.38) !important;
+  background: rgba(99, 201, 132, 0.08) !important;
 }
 
 .vp-doc hr {
