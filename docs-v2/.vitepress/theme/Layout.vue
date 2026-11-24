@@ -3,7 +3,6 @@ import { onMounted, nextTick } from 'vue'
 import { onContentUpdated } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import {
-  initSpotlight,
   initReadingProgress,
   updateReadingProgress,
   refreshScrollReveal,
@@ -13,7 +12,6 @@ import {
 const { Layout } = DefaultTheme
 
 onMounted(() => {
-  initSpotlight()
   initReadingProgress()
   nextTick(() => {
     refreshScrollReveal()
