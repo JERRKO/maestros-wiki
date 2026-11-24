@@ -2,10 +2,17 @@
 title: Главная страница
 ---
 
-<div class="mn-masthead">
-  <div class="mn-masthead-kicker">GOREBOX / MILITARY RP</div>
-  <h1 class="mn-masthead-title">MAESTROS PROJECT</h1>
-  <p class="mn-masthead-lead">Military RP проект в GoreBox, объединяющий тактический геймплей, дисциплину и продуманную ролевую атмосферу.</p>
+<div class="mn-hero">
+  <img class="mn-hero-img" src="/images/media/mountain_ambush.jpg" alt="" aria-hidden="true" />
+  <div class="mn-hero-scrim" aria-hidden="true"></div>
+  <div class="mn-hero-content">
+    <div class="mn-masthead-kicker">GOREBOX / MILITARY RP</div>
+    <h1 class="mn-masthead-title">MAESTROS PROJECT</h1>
+    <p class="mn-masthead-lead">Military RP проект в GoreBox, объединяющий тактический геймплей, дисциплину и продуманную ролевую атмосферу.</p>
+    <div class="mn-hero-actions">
+      <a class="mn-hero-btn" href="/maestros-wiki/v2/chechnya-rp/rules">Читать правила</a>
+    </div>
+  </div>
 </div>
 
 <div class="mn-onboarding">
@@ -92,3 +99,18 @@ title: Главная страница
     </div>
   </a>
 </div>
+
+## Карта региона
+
+<a class="mn-map-card" href="/maestros-wiki/v2/images/media/map_overview.jpg" target="_blank" rel="noopener noreferrer">
+  <div class="mn-map-frame">
+    <img src="/images/media/map_overview.jpg" alt="Обзорная карта региона" />
+  </div>
+  <div class="mn-media-caption">
+    <div>
+      <div class="mn-media-title">Обзорная карта региона</div>
+      <div class="mn-media-sub">Городской квартал, горные серпантины и ключевые дороги</div>
+    </div>
+    <span class="mn-media-link">Открыть ↗</span>
+  </div>
+</a>

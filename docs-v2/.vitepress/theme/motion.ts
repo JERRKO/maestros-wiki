@@ -1,5 +1,5 @@
 const REVEAL_SELECTOR =
-  '.mn-masthead, .mn-onboarding, .mn-index-list, .mn-side-grid, .vp-doc h2, .vp-doc .custom-block, .vp-doc table, .mn-banner, .mn-grid, .mn-stack, .rules-jump-grid, .mn-team-grid, .VPDocFooter .pager-link'
+  '.mn-hero, .mn-onboarding, .mn-index-list, .mn-side-grid, .mn-map-card, .vp-doc h2, .vp-doc .custom-block, .vp-doc table, .mn-banner, .mn-grid, .mn-stack, .rules-jump-grid, .mn-team-grid, .VPDocFooter .pager-link'
 
 let progressInitialized = false
 let revealObserver: IntersectionObserver | null = null

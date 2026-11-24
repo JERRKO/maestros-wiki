@@ -4,9 +4,9 @@
    ========================================================================== */
 
 :root {
-  --vp-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
-  --vp-font-family-mono: 'JetBrains Mono', 'SF Mono', ui-monospace, SFMono-Regular, monospace;
-  --mn-font-display: 'Manrope', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+  --vp-font-family-base: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+  --vp-font-family-mono: 'IBM Plex Mono', 'SF Mono', ui-monospace, SFMono-Regular, monospace;
+  --mn-font-display: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
 
   /* Neutral Monochromatic Dark Canvas */
   --vp-c-bg: #0a0a0b;
@@ -573,12 +573,66 @@ a.mn-sidebar-social:hover .mn-sidebar-social-arrow {
 }
 
 /* ==========================================================================
-   Homepage Editorial Layout (Masthead, Onboarding Steps, Index Rows, Sides)
+   Homepage Editorial Layout (Atmospheric Hero, Onboarding Steps, Index Rows, Sides)
    ========================================================================== */
-.mn-masthead {
-  padding: 4px 0 28px;
+.mn-hero {
+  position: relative;
+  margin: -16px -24px 28px;
+  padding: 56px 28px 44px;
+  overflow: hidden;
   border-bottom: 1px solid var(--mn-border);
-  margin-bottom: 24px;
+}
+
+.mn-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  filter: blur(1.5px);
+  transform: scale(1.03);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.mn-hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(10, 10, 11, 0.42) 0%, rgba(10, 10, 11, 0.72) 58%, #0a0a0b 100%),
+    linear-gradient(90deg, rgba(10, 10, 11, 0.88) 0%, rgba(10, 10, 11, 0.52) 55%, rgba(10, 10, 11, 0.82) 100%);
+}
+
+.mn-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.mn-hero-actions {
+  margin-top: 22px;
+}
+
+a.mn-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 7px;
+  background: var(--vp-c-brand-1);
+  color: #08120c !important;
+  font-family: var(--mn-font-display);
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none !important;
+  transition: background-color 0.15s ease;
+}
+
+a.mn-hero-btn:hover {
+  background: #6cc48b;
+  color: #08120c !important;
 }
 
 .mn-masthead-kicker {
@@ -1297,6 +1351,154 @@ a.rules-jump-pill:hover {
 }
 
 /* ==========================================================================
+   Editorial Map & Media Presentations (Theater, Location Plate, Strips)
+   ========================================================================== */
+a.mn-map-card {
+  display: flex;
+  flex-direction: column;
+  margin: 14px 0 24px;
+  border-radius: var(--mn-radius-xl);
+  background: var(--mn-surface);
+  border: 1px solid var(--mn-border);
+  overflow: hidden;
+  text-decoration: none !important;
+  transition: border-color 0.16s ease, background-color 0.16s ease;
+}
+
+a.mn-map-card:hover {
+  border-color: rgba(90, 179, 121, 0.34);
+  background: var(--mn-surface-hover);
+}
+
+.mn-map-frame {
+  overflow: hidden;
+  background: #0d0e10;
+  border-bottom: 1px solid var(--mn-border);
+}
+
+.mn-map-frame img {
+  width: 100%;
+  max-height: 520px;
+  display: block;
+  object-fit: cover;
+}
+
+.mn-media-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+}
+
+.mn-media-title {
+  font-family: var(--mn-font-display);
+  font-weight: 700;
+  font-size: 0.94rem;
+  color: #f2f2f4;
+  line-height: 1.25;
+}
+
+.mn-media-sub {
+  margin-top: 2px;
+  font-size: 0.78rem;
+  color: #8e8e96;
+  line-height: 1.35;
+}
+
+.mn-media-link {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.72rem;
+  color: var(--vp-c-brand-1);
+  white-space: nowrap;
+}
+
+.mn-theater-side {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+figure.mn-photo-card {
+  margin: 0 !important;
+  border-radius: var(--mn-radius-xl);
+  background: var(--mn-surface);
+  border: 1px solid var(--mn-border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+figure.mn-photo-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--mn-border);
+}
+
+figcaption.mn-photo-cap {
+  padding: 9px 12px;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: #9a9aa4;
+}
+
+figcaption.mn-photo-cap strong {
+  color: #ededf0;
+  font-weight: 600;
+}
+
+/* Wide Location Plate (VS RF subpage) */
+figure.mn-plate {
+  margin: 16px 0 22px !important;
+  border-radius: var(--mn-radius-xl);
+  background: var(--mn-surface);
+  border: 1px solid var(--mn-border);
+  overflow: hidden;
+}
+
+figure.mn-plate img {
+  width: 100%;
+  aspect-ratio: 16 / 8.5;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--mn-border);
+}
+
+figcaption.mn-plate-cap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  color: #9a9aa4;
+}
+
+.mn-plate-label {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.69rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--vp-c-brand-1);
+  background: rgba(90, 179, 121, 0.08);
+  border: 1px solid rgba(90, 179, 121, 0.22);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+/* Two-frame strip (CHRI & Rules visual comparison) */
+.mn-photo-strip,
+.mn-rule-visuals {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0 20px;
+}
+
+/* ==========================================================================
    Responsive Adjustments
    ========================================================================== */
 @media (max-width: 768px) {
@@ -1306,7 +1508,10 @@ a.rules-jump-pill:hover {
   }
 
   .mn-side-grid,
-  .mn-grid {
+  .mn-grid,
+  .mn-theater,
+  .mn-photo-strip,
+  .mn-rule-visuals {
     grid-template-columns: 1fr;
   }
 
