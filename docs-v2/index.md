@@ -3,10 +3,7 @@ title: Главная страница
 ---
 
 <div class="mn-masthead">
-  <div class="mn-masthead-kicker">
-    <span class="mn-status-dot" aria-hidden="true"></span>
-    <span>GOREBOX · MILITARY RP</span>
-  </div>
+  <div class="mn-masthead-kicker">GOREBOX / MILITARY RP</div>
   <h1 class="mn-masthead-title">MAESTROS PROJECT</h1>
   <p class="mn-masthead-lead">Military RP проект в GoreBox, объединяющий тактический геймплей, дисциплину и продуманную ролевую атмосферу.</p>
 </div>
@@ -15,19 +12,16 @@ title: Главная страница
   <div class="mn-section-label">С чего начать новичку</div>
   <ol class="mn-steps">
     <li class="mn-step">
-      <span class="mn-step-num">01</span>
       <div class="mn-step-text">
         Изучите <a href="/maestros-wiki/v2/chechnya-rp/rules">Правила ЧЕЧНЯ РП</a>, чтобы не получить наказание с первых минут.
       </div>
     </li>
     <li class="mn-step">
-      <span class="mn-step-num">02</span>
       <div class="mn-step-text">
         Выберите сторону в разделе <a href="#фракции-и-подразделения-выбор-стороны">Фракции и подразделения</a> (<strong>ВС РФ</strong> или <strong>ЧРИ</strong>), откройте её <strong>Архитектуру</strong> и посмотрите форму и задачи своей роли.
       </div>
     </li>
     <li class="mn-step">
-      <span class="mn-step-num">03</span>
       <div class="mn-step-text">
         Ознакомьтесь с <a href="/maestros-wiki/v2/chechnya-rp/ranks">Системой званий и заслуг</a>, чтобы получать повышения через <a href="https://discord.gg/jDbRN3Kgg" target="_blank" rel="noopener noreferrer">Discord</a>.
       </div>
@@ -39,29 +33,26 @@ title: Главная страница
 
 <div class="mn-index-list">
   <a class="mn-index-row is-primary" href="/maestros-wiki/v2/chechnya-rp/rules">
-    <span class="mn-index-num">01</span>
     <div class="mn-index-main">
       <div class="mn-index-title-line">
         <span class="mn-index-title">Правила ЧЕЧНЯ РП</span>
-        <span class="mn-index-tag">Основной свод · 6 разделов</span>
+        <span class="mn-index-tag">Основной свод — 6 разделов</span>
       </div>
       <p class="mn-index-desc">Общие положения, RP-термины, боевой регламент, правила для командиров, плена, допросов и RPK.</p>
     </div>
     <span class="mn-index-arrow" aria-hidden="true">→</span>
   </a>
   <a class="mn-index-row" href="/maestros-wiki/v2/chechnya-rp/ranks">
-    <span class="mn-index-num">02</span>
     <div class="mn-index-main">
       <div class="mn-index-title-line">
         <span class="mn-index-title">Система званий и заслуг</span>
-        <span class="mn-index-meta">ВС РФ · ЧРИ</span>
+        <span class="mn-index-meta">ВС РФ / ЧРИ</span>
       </div>
       <p class="mn-index-desc">Баллы <code>!balance</code> и отчёты на повышение для ВС РФ, рапорты и голосования Штаба для ЧРИ.</p>
     </div>
     <span class="mn-index-arrow" aria-hidden="true">→</span>
   </a>
   <a class="mn-index-row" href="/maestros-wiki/v2/team">
-    <span class="mn-index-num">03</span>
     <div class="mn-index-main">
       <div class="mn-index-title-line">
         <span class="mn-index-title">Команда проекта</span>
@@ -89,7 +80,6 @@ title: Главная страница
       <div class="mn-side-title">ВС РФ</div>
       <p class="mn-side-desc">Чёткая вертикаль командования, бронетехника, комендатура, разведка ГРУ и контрразведка ФСБ.</p>
     </div>
-    <div class="mn-side-roster">Штаб · МСВ · РМО · Комендатура · ФСБ · ГРУ</div>
   </a>
   <a class="mn-side" href="/maestros-wiki/v2/factions/chri">
     <div class="mn-side-head">
@@ -100,6 +90,5 @@ title: Главная страница
       <div class="mn-side-title">ЧРИ</div>
       <p class="mn-side-desc">Мобильные отряды полевых командиров, Национальная гвардия, сельское ополчение, ДГБ и диверсанты.</p>
     </div>
-    <div class="mn-side-roster">Штаб · Гвардия · Отряды · Ополчение · ДГБ · Тыл</div>
   </a>
 </div>

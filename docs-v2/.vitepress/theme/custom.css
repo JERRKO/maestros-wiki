@@ -582,23 +582,14 @@ a.mn-sidebar-social:hover .mn-sidebar-social-arrow {
 }
 
 .mn-masthead-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: block;
   font-family: var(--vp-font-family-mono);
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: #8e8e96;
+  color: var(--vp-c-brand-1);
   margin-bottom: 10px;
-}
-
-.mn-status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 9999px;
-  background-color: var(--vp-c-brand-1);
 }
 
 .vp-doc h1.mn-masthead-title {
@@ -791,8 +782,8 @@ a.mn-side:hover .mn-index-arrow {
 a.mn-side {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 16px;
+  justify-content: flex-start;
+  gap: 12px;
   padding: 20px 22px;
   border-radius: var(--mn-radius-xl);
   background: var(--mn-surface);
@@ -803,7 +794,7 @@ a.mn-side {
 
 a.mn-side:hover {
   background: var(--mn-surface-hover);
-  border-color: var(--mn-border-hover);
+  border-color: rgba(90, 179, 121, 0.34);
 }
 
 .mn-side-head {
@@ -1220,15 +1211,22 @@ a.rules-jump-pill:hover {
   scroll-margin-top: 84px;
 }
 
+.rules-page .vp-doc table td:first-child {
+  color: var(--vp-c-brand-1);
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .rules-page .vp-doc h3 code {
-  font-size: 0.75rem;
-  padding: 2px 7px;
+  font-size: 0.76rem;
+  padding: 2px 8px;
   vertical-align: middle;
-  margin: 0 1px;
-  letter-spacing: 0.04em;
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.10);
-  color: #a1a1aa;
+  margin: 0 2px;
+  letter-spacing: 0.05em;
+  background: rgba(90, 179, 121, 0.08);
+  border-color: rgba(90, 179, 121, 0.22);
+  color: var(--vp-c-brand-1);
 }
 
 /* ==========================================================================
