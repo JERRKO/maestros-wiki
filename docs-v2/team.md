@@ -4,22 +4,25 @@
 
 <div class="mn-team-grid">
   <div class="mn-team-card">
-    <img src="/images/avatar_maestro.png" alt="maestro" />
+    <img class="mn-team-bg" src="/images/avatar_maestro.png" alt="" aria-hidden="true" />
+    <img class="mn-team-avatar" src="/images/avatar_maestro.png" alt="maestro" />
     <div class="mn-team-name">maestro</div>
     <span class="mn-team-role">1-й куратор проекта</span>
   </div>
   <div class="mn-team-card">
-    <img src="/images/avatar_jerrko.png" alt="jerrko" />
+    <img class="mn-team-bg" src="/images/avatar_jerrko.jpg" alt="" aria-hidden="true" />
+    <img class="mn-team-avatar" src="/images/avatar_jerrko.jpg" alt="jerrko" />
     <div class="mn-team-name">jerrko</div>
     <span class="mn-team-role">2-й куратор проекта</span>
   </div>
 </div>
 
-## Модерация и комьюнити
+<h2 class="mn-team-heading-centered">Модерация и комьюнити</h2>
 
-<div class="mn-team-grid" style="max-width: 320px;">
+<div class="mn-team-grid is-centered">
   <div class="mn-team-card">
-    <img src="/images/avatar_marmeladka.png" alt="marmeladka-blood" />
+    <img class="mn-team-bg" src="/images/avatar_marmeladka.png" alt="" aria-hidden="true" />
+    <img class="mn-team-avatar" src="/images/avatar_marmeladka.png" alt="marmeladka-blood" />
     <div class="mn-team-name">marmeladka-blood</div>
     <span class="mn-team-role">Менеджер комьюнити</span>
   </div>

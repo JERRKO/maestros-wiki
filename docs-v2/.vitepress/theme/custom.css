@@ -290,6 +290,46 @@ body {
   color: #f4f4f5 !important;
 }
 
+.VPNavBarMenuLink[href$="/team"],
+.VPNavBarMenuLink[href*="discord.gg"],
+.VPNavBarMenuLink[href*="t.me"] {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+}
+
+.VPNavBarMenuLink[href$="/team"]::before,
+.VPNavBarMenuLink[href*="discord.gg"]::before,
+.VPNavBarMenuLink[href*="t.me"]::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  background-color: currentColor;
+  opacity: 0.78;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.VPNavBarMenuLink[href$="/team"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M22 21v-2a4 4 0 0 0-3-3.87'/%3E%3Cpath d='M16 3.13a4 4 0 0 1 0 7.75'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M22 21v-2a4 4 0 0 0-3-3.87'/%3E%3Cpath d='M16 3.13a4 4 0 0 1 0 7.75'/%3E%3C/svg%3E");
+}
+
+.VPNavBarMenuLink[href*="discord.gg"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 127.14 96.36' fill='black'%3E%3Cpath d='M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 127.14 96.36' fill='black'%3E%3Cpath d='M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z'/%3E%3C/svg%3E");
+}
+
+.VPNavBarMenuLink[href*="t.me"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M21.93 3.29a1.5 1.5 0 0 0-1.56-.21L2.94 10.1a1.45 1.45 0 0 0 .08 2.71l4.41 1.44 1.72 5.36a1.1 1.1 0 0 0 1.85.44l2.49-2.41 4.38 3.24a1.5 1.5 0 0 0 2.36-.88l2.7-15.2a1.5 1.5 0 0 0-1-1.51Zm-4.18 4.44-7.9 7.12-.31 3.28-1.26-3.93 9.47-6.47Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M21.93 3.29a1.5 1.5 0 0 0-1.56-.21L2.94 10.1a1.45 1.45 0 0 0 .08 2.71l4.41 1.44 1.72 5.36a1.1 1.1 0 0 0 1.85.44l2.49-2.41 4.38 3.24a1.5 1.5 0 0 0 2.36-.88l2.7-15.2a1.5 1.5 0 0 0-1-1.51Zm-4.18 4.44-7.9 7.12-.31 3.28-1.26-3.93 9.47-6.47Z'/%3E%3C/svg%3E");
+}
+
 .VPLocalNav {
   background: rgba(10, 10, 11, 0.96) !important;
   border-bottom: 1px solid var(--mn-border) !important;
@@ -577,8 +617,11 @@ a.mn-sidebar-social:hover .mn-sidebar-social-arrow {
    ========================================================================== */
 .mn-hero {
   position: relative;
+  display: flex;
+  align-items: center;
+  min-height: clamp(260px, 36vh, 460px);
   margin: -16px -24px 28px;
-  padding: 56px 28px 44px;
+  padding: clamp(32px, 5vw, 72px) clamp(20px, 3.5vw, 40px) clamp(28px, 4vw, 52px);
   overflow: hidden;
   border-bottom: 1px solid var(--mn-border);
 }
@@ -1136,16 +1179,36 @@ a.mn-card:hover .mn-arrow {
   margin: 16px 0 28px;
 }
 
+.mn-team-heading-centered {
+  text-align: center;
+}
+
+.mn-team-grid.is-centered {
+  grid-template-columns: minmax(210px, 320px);
+  justify-content: center;
+}
+
 .mn-team-card {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 22px 18px;
+  padding: 24px 18px;
   border-radius: var(--mn-radius-xl);
   background: var(--mn-surface);
   border: 1px solid var(--mn-border);
   transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.mn-team-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(16, 16, 19, 0.58) 0%, rgba(16, 16, 19, 0.86) 100%);
+  pointer-events: none;
 }
 
 .mn-team-card:hover {
@@ -1153,12 +1216,32 @@ a.mn-card:hover .mn-arrow {
   border-color: var(--mn-border-hover);
 }
 
-.mn-team-card img {
+.mn-team-card > *:not(.mn-team-bg) {
+  position: relative;
+  z-index: 2;
+}
+
+.mn-team-card img.mn-team-bg {
+  position: absolute;
+  inset: -12px;
+  width: calc(100% + 24px);
+  height: calc(100% + 24px);
+  object-fit: cover;
+  filter: blur(22px) saturate(1.1);
+  opacity: 0.34;
+  z-index: 0;
+  pointer-events: none;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+}
+
+.mn-team-card img.mn-team-avatar {
   width: 96px;
   height: 96px;
   object-fit: cover;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   margin-bottom: 12px;
 }
 
@@ -1265,22 +1348,49 @@ a.rules-jump-pill:hover {
   scroll-margin-top: 84px;
 }
 
-.rules-page .vp-doc table td:first-child {
-  color: var(--vp-c-brand-1);
-  letter-spacing: 0.06em;
-  font-weight: 600;
-  white-space: nowrap;
+/* Severity Badges in Rules */
+.mn-sev {
+  display: inline-block;
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.3;
+  padding: 2px 8px;
+  border-radius: 5px;
+  vertical-align: middle;
+  margin-left: 6px;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.04);
+  color: #a1a1aa;
 }
 
-.rules-page .vp-doc h3 code {
-  font-size: 0.76rem;
-  padding: 2px 8px;
-  vertical-align: middle;
-  margin: 0 2px;
-  letter-spacing: 0.05em;
-  background: rgba(90, 179, 121, 0.08);
-  border-color: rgba(90, 179, 121, 0.22);
-  color: var(--vp-c-brand-1);
+.vp-doc table .mn-sev {
+  margin-left: 0;
+}
+
+.mn-sev.is-low {
+  color: #a1a1aa;
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.mn-sev.is-minor {
+  color: #5ab379;
+  border-color: rgba(90, 179, 121, 0.24);
+  background: rgba(90, 179, 121, 0.09);
+}
+
+.mn-sev.is-serious {
+  color: #d99e47;
+  border-color: rgba(217, 158, 71, 0.26);
+  background: rgba(217, 158, 71, 0.09);
+}
+
+.mn-sev.is-critical {
+  color: #dc6262;
+  border-color: rgba(220, 98, 98, 0.28);
+  background: rgba(220, 98, 98, 0.09);
 }
 
 /* ==========================================================================

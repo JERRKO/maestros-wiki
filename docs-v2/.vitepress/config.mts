@@ -117,6 +117,7 @@ export default defineConfig({
       next: 'Далее'
     },
     nav: [
+      { text: 'Команда проекта', link: '/team' },
       { text: 'Discord', link: 'https://discord.gg/jDbRN3Kgg' },
       { text: 'Telegram', link: 'https://t.me/GoreBoxMST' }
     ],
